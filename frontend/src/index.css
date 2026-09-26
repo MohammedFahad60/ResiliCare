@@ -13374,7 +13374,7 @@ button {
 }
 
 button:not(.icon-button) {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 /* Borders — slightly more visible */
