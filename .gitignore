@@ -1,0 +1,22 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+myenv/
+venv/
+
+# Generated ML/data
+data/generated/*.joblib
+data/generated/*.csv
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
