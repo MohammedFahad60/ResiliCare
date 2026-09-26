@@ -13,6 +13,8 @@ from app.routes.explain import router as explain_router
 from app.routes.crisis_briefing import router as crisis_briefing_router
 from app.routes.crisis_chat import router as crisis_chat_router
 from app.routes.federated import router as federated_router
+from datetime import datetime, timezone
+
 
 app = FastAPI(
     title="ResiliCare API",
@@ -63,5 +65,9 @@ def root():
 
 
 @app.get("/health")
-def health():
-    return {"status": "healthy"}
+def health_check():
+    return {
+        "success": True,
+        "message": "ResiliCare backend is healthy",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
