@@ -1,0 +1,15 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+myenv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Generated demand dataset
+data/generated/demand_history.csv
