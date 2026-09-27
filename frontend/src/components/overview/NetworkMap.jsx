@@ -77,7 +77,7 @@ function NetworkMap({
           zoom={5}
           minZoom={4}
           maxZoom={9}
-          scrollWheelZoom={false}
+          scrollWheelZoom={true}
           zoomControl={false}
           className="resili-map"
         >
