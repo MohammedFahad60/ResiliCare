@@ -14272,3 +14272,395 @@ footer,
     animation: none !important;
   }
 }
+
+
+/* =========================================================
+   EARLY WARNING — ATTRACTIVE STATUS DESIGN
+   CSS ONLY — EXISTING JSX PRESERVED
+   ========================================================= */
+
+.warning-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   BASE CARD
+   --------------------------------------------------------- */
+
+.warning-summary-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 14, 14, 0.96),
+      rgba(6, 6, 6, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  color: #fff;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* ---------------------------------------------------------
+   TOP STATUS LINE
+   --------------------------------------------------------- */
+
+.warning-summary-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background: var(--warning-color);
+
+  opacity: 0.7;
+
+  box-shadow:
+    0 0 12px var(--warning-color);
+}
+
+
+/* ---------------------------------------------------------
+   STATUS COLORS
+   --------------------------------------------------------- */
+
+.warning-summary-card:nth-child(1) {
+  --warning-color: #ff646c;
+}
+
+.warning-summary-card:nth-child(2) {
+  --warning-color: #edbf61;
+}
+
+.warning-summary-card:nth-child(3) {
+  --warning-color: #6be7f5;
+}
+
+.warning-summary-card:nth-child(4) {
+  --warning-color: #9a9a9a;
+}
+
+
+/* ---------------------------------------------------------
+   LABEL
+   --------------------------------------------------------- */
+
+.warning-summary-label {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 13px;
+
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 2px;
+}
+
+
+/* Status dot */
+
+.warning-summary-label::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 6px;
+
+  border-radius: 50%;
+
+  background: var(--warning-color);
+
+  box-shadow:
+    0 0 8px var(--warning-color);
+
+  animation:
+    warning-status-pulse 2.5s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   NUMBER
+   --------------------------------------------------------- */
+
+.warning-summary-card strong {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #f5f5f5;
+
+  font-size: clamp(30px, 3vw, 40px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+   --------------------------------------------------------- */
+
+.warning-summary-card > span:last-child {
+  position: relative;
+  z-index: 2;
+
+  color: #686868;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM SIGNAL METER
+   --------------------------------------------------------- */
+
+.warning-summary-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--warning-color),
+      transparent
+    );
+
+  opacity: 0.45;
+
+  transform-origin: left;
+
+  animation:
+    warning-meter 3s ease-in-out infinite;
+}
+
+
+/* Different meter lengths */
+
+.warning-summary-card:nth-child(1)::after {
+  transform: scaleX(0.82);
+}
+
+.warning-summary-card:nth-child(2)::after {
+  transform: scaleX(0.38);
+}
+
+.warning-summary-card:nth-child(3)::after {
+  transform: scaleX(0.92);
+}
+
+.warning-summary-card:nth-child(4)::after {
+  transform: scaleX(1);
+}
+
+
+/* ---------------------------------------------------------
+   SUBTLE COLOR ATMOSPHERE
+   --------------------------------------------------------- */
+
+.warning-summary-card {
+  isolation: isolate;
+}
+
+.warning-summary-card .warning-summary-label,
+.warning-summary-card strong,
+.warning-summary-card > span:last-child {
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
+
+.warning-summary-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--warning-color) 45%,
+      rgba(255, 255, 255, 0.1)
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.98),
+      rgba(7, 7, 7, 1)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 0 22px
+      color-mix(
+        in srgb,
+        var(--warning-color) 8%,
+        transparent
+      );
+}
+
+
+/* ---------------------------------------------------------
+   ACTIVE FILTER
+   ---------------------------------------------------------
+
+   The filter still works, but active no longer looks like
+   a completely different selected card.
+   --------------------------------------------------------- */
+
+.warning-summary-card.active {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 16, 16, 0.98),
+      rgba(7, 7, 7, 1)
+    );
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--warning-color) 38%,
+      rgba(255, 255, 255, 0.1)
+    );
+
+  box-shadow:
+    inset 0 -1px 0
+      color-mix(
+        in srgb,
+        var(--warning-color) 65%,
+        transparent
+      );
+}
+
+
+/* Active number */
+
+.warning-summary-card.active strong {
+  color: #fff;
+
+  text-shadow:
+    0 0 18px
+      color-mix(
+        in srgb,
+        var(--warning-color) 18%,
+        transparent
+      );
+}
+
+
+/* ---------------------------------------------------------
+   PULSE
+   --------------------------------------------------------- */
+
+@keyframes warning-status-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    transform: scale(0.85);
+
+    box-shadow:
+      0 0 5px var(--warning-color);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+
+    box-shadow:
+      0 0 11px var(--warning-color);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   METER ANIMATION
+   --------------------------------------------------------- */
+
+@keyframes warning-meter {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   FOCUS
+   --------------------------------------------------------- */
+
+.warning-summary-card:focus-visible {
+  outline: 1px solid var(--warning-color);
+  outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .warning-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .warning-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
