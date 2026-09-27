@@ -32,6 +32,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://resili-care-iota.vercel.app",
+        "https://resilicare-992ca.web.app",
+        "https://resilicare-992ca.firebaseapp.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
