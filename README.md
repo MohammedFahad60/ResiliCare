@@ -2,6 +2,13 @@
 
 > **Predict. Prepare. Protect.**
 
+## 🚀 Live Demo
+
+- **Frontend:** https://resilicare-992ca.web.app
+- **Backend:** https://resilicare.onrender.com
+- **Health Check:** https://resilicare.onrender.com/health
+- **Source Code:** https://github.com/MohammedFahad60/ResiliCare
+
 ResiliCare is an AI-powered healthcare resilience and resource intelligence platform designed to help healthcare networks anticipate resource failures before they become critical.
 
 Instead of only showing the current condition of healthcare facilities, ResiliCare combines **demand forecasting, inventory intelligence, crisis simulation, risk detection, resource redistribution, impact analysis, and federated learning concepts** into a single decision-support platform.
@@ -33,6 +40,7 @@ Instead of only showing the current condition of healthcare facilities, ResiliCa
 - [Local Development](#local-development)
 - [Environment Variables](#environment-variables)
 - [Production Deployment](#production-deployment)
+- [CORS](#cors)
 - [Example Crisis Scenario](#example-crisis-scenario)
 - [Demonstrated Results](#demonstrated-results)
 - [Limitations and Responsible Use](#limitations-and-responsible-use)
@@ -382,7 +390,8 @@ The service generates a seven-day recursive forecast.
 |---|---|
 | Supabase | Managed PostgreSQL |
 | Render | FastAPI deployment |
-| Vercel | React deployment |
+| Firebase Hosting | React production deployment |
+| Vercel | Previous/alternate React deployment |
 | UptimeRobot | Backend health monitoring |
 | GitHub | Source control |
 
@@ -435,7 +444,7 @@ ResiliCare/
 │   │   └── train_demand_model.py
 │   │
 │   ├── requirements.txt
-│   └── .env
+│   └── .env.example
 │
 ├── frontend/
 │   │
@@ -814,9 +823,9 @@ This is a development simulation of federated intelligence and should not be int
 
 # Gemini Integration
 
-ResiliCare can use Google's Gemini API for generative intelligence capabilities.
+ResiliCare uses Google's Gemini API as a generative intelligence and decision-support layer.
 
-Potential applications include:
+Current and demonstrated applications include:
 
 - explaining risk signals
 - generating crisis briefings
@@ -837,6 +846,25 @@ Human-readable Explanation
 ```
 
 Generative AI is positioned as an **explanation and decision-support layer**, not as the source of raw operational truth.
+
+### Google Technology Integration
+
+ResiliCare uses Google technologies in the following roles:
+
+```text
+Firebase Hosting
+      ↓
+Production React Application
+
+Google Gemini API
+      ↓
+Risk explanations
+Crisis briefings
+Intervention explanations
+Operational Q&A
+```
+
+The application does not depend on Google Cloud Run for its current deployment. The production frontend is hosted on Firebase Hosting, while the FastAPI backend runs on Render and PostgreSQL is hosted by Supabase.
 
 ---
 
@@ -1285,7 +1313,13 @@ The current deployment architecture is:
 
 ## Frontend
 
-The React application is deployed on Vercel.
+The React application is deployed on Firebase Hosting.
+
+**Live URL:**
+
+```text
+https://resilicare-992ca.web.app
+```
 
 Production API configuration:
 
@@ -1336,9 +1370,16 @@ DATABASE_URL
 
 # CORS
 
-The backend allows the production frontend to communicate with the API.
+The backend allows the deployed frontend origins to communicate with the FastAPI API.
 
-The production frontend origin is:
+Current production frontend origins:
+
+```text
+https://resilicare-992ca.web.app
+https://resilicare-992ca.firebaseapp.com
+```
+
+The previous Vercel deployment may also be retained as an allowed origin when required:
 
 ```text
 https://resili-care-iota.vercel.app
@@ -1584,7 +1625,7 @@ However, the current federated module is a simulation/prototype and should not b
 - [x] Intervention impact analysis
 - [x] Federated intelligence simulation
 - [x] Gemini-powered intelligence layer
-- [x] Cloud deployment architecture
+- [x] Firebase Hosting + Render + Supabase deployment architecture
 
 ---
 
@@ -1727,7 +1768,7 @@ Current prototype capabilities include:
 ✅ Interactive network map
 ✅ PostgreSQL / Supabase
 ✅ FastAPI backend
-✅ Vercel frontend
+✅ Firebase Hosting frontend
 ✅ Render backend
 ```
 
@@ -1771,6 +1812,6 @@ Bengaluru, India
 
 # License
 
-This project is intended as a prototype / demonstration project.
+This project is currently presented as a prototype / demonstration project.
 
-Add an explicit open-source license such as MIT, Apache-2.0, or another appropriate license before publicly distributing the source code under an open-source license.
+No open-source license is currently declared. If the repository is intended to be distributed under an open-source license, add a `LICENSE` file and update this section accordingly.
