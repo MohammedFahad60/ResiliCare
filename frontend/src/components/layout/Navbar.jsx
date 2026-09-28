@@ -64,7 +64,7 @@ export default function Navbar({
                 className="flex items-center"
               >
                   <img
-                    src="frontend/src/assets/logo.png"
+                    src="/logo.png"
                     alt="ResiliCare"
                     className="h-12 w-auto object-contain"
                   />
