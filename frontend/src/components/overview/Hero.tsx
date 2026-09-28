@@ -1,9 +1,4 @@
-import {
-  ArrowRight,
-  BrainCircuit,
-  Network,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, BrainCircuit, Network, ShieldCheck } from "lucide-react";
 
 function Hero({
   onRunSimulation,
@@ -13,13 +8,11 @@ function Hero({
 }) {
   return (
     <section className="hero-section">
-
       {/* =====================================================
           HERO CONTENT
       ===================================================== */}
 
       <div className="hero-content">
-
         <div className="hero-eyebrow">
           <span className="hero-eyebrow-dot" />
           AI-POWERED HEALTHCARE RESILIENCE
@@ -32,31 +25,25 @@ function Hero({
         </h1>
 
         <p className="hero-description">
-          ResiliCare forecasts demand, detects emerging
-          shortages, simulates crisis scenarios, and
-          recommends cross-facility interventions before
+          ResiliCare forecasts demand, detects emerging shortages, simulates
+          crisis scenarios, and recommends cross-facility interventions before
           healthcare systems reach a breaking point.
         </p>
-
 
         {/* =================================================
             ACTIONS
             ================================================= */}
 
         <div className="hero-actions">
-
           <button
             type="button"
             className="hero-primary-button"
             onClick={onExploreNetwork}
           >
             <Network size={17} />
-
             Explore healthcare network
-
             <ArrowRight size={16} />
           </button>
-
 
           <button
             type="button"
@@ -64,21 +51,16 @@ function Hero({
             onClick={onRunSimulation}
           >
             <BrainCircuit size={17} />
-
             Simulate a crisis
           </button>
-
         </div>
-
 
         {/* =================================================
             TRUST / SCALE SIGNALS
             ================================================= */}
 
         <div className="hero-meta">
-
           <div className="hero-meta-item">
-
             <ShieldCheck size={15} />
 
             <div>
@@ -88,15 +70,11 @@ function Hero({
                 {Number(facilityCount).toLocaleString()} facilities
               </strong>
             </div>
-
           </div>
-
 
           <div className="hero-meta-divider" />
 
-
           <div className="hero-meta-item">
-
             <BrainCircuit size={15} />
 
             <div>
@@ -106,107 +84,90 @@ function Hero({
                 {Number(stockoutNodes).toLocaleString()} risk signals
               </strong>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
 
       {/* =====================================================
           HERO INTELLIGENCE PANEL
           ===================================================== */}
 
       <div className="hero-intelligence">
+        <div className="hero-intelligence-header">
+          <span>RESILICARE INTELLIGENCE LOOP</span>
 
-  <div className="hero-intelligence-header">
-    <span>RESILICARE INTELLIGENCE LOOP</span>
+          <div className="hero-live-status">
+            <span />
+            LIVE
+          </div>
+        </div>
 
-    <div className="hero-live-status">
-      <span />
-      LIVE
-    </div>
-  </div>
+        <div className="hero-loop">
+          {/* DETECT */}
+          <div className="hero-loop-step hero-loop-step-1">
+            <div className="hero-step-number">01</div>
 
-  <div className="hero-loop">
+            <strong>DETECT</strong>
 
-    {/* DETECT */}
-    <div className="hero-loop-step hero-loop-step-1">
-      <div className="hero-step-number">01</div>
+            <small>Monitor network signals</small>
 
-      <strong>DETECT</strong>
+            <div className="hero-step-glow" />
+          </div>
 
-      <small>
-        Monitor network signals
-      </small>
+          <div className="hero-loop-line">
+            <span />
+          </div>
 
-      <div className="hero-step-glow" />
-    </div>
+          {/* PREDICT */}
+          <div className="hero-loop-step hero-loop-step-2">
+            <div className="hero-step-number">02</div>
 
-    <div className="hero-loop-line">
-      <span />
-    </div>
+            <strong>PREDICT</strong>
 
-    {/* PREDICT */}
-    <div className="hero-loop-step hero-loop-step-2">
-      <div className="hero-step-number">02</div>
+            <small>Forecast future demand</small>
 
-      <strong>PREDICT</strong>
+            <div className="hero-step-glow" />
+          </div>
 
-      <small>
-        Forecast future demand
-      </small>
+          <div className="hero-loop-line">
+            <span />
+          </div>
 
-      <div className="hero-step-glow" />
-    </div>
+          {/* SIMULATE */}
+          <div className="hero-loop-step hero-loop-step-3">
+            <div className="hero-step-number">03</div>
 
-    <div className="hero-loop-line">
-      <span />
-    </div>
+            <strong>SIMULATE</strong>
 
-    {/* SIMULATE */}
-    <div className="hero-loop-step hero-loop-step-3">
-      <div className="hero-step-number">03</div>
+            <small>Stress-test the network</small>
 
-      <strong>SIMULATE</strong>
+            <div className="hero-step-glow" />
+          </div>
 
-      <small>
-        Stress-test the network
-      </small>
+          <div className="hero-loop-line">
+            <span />
+          </div>
 
-      <div className="hero-step-glow" />
-    </div>
+          {/* ACT */}
+          <div className="hero-loop-step hero-loop-step-4">
+            <div className="hero-step-number">04</div>
 
-    <div className="hero-loop-line">
-      <span />
-    </div>
+            <strong>ACT</strong>
 
-    {/* ACT */}
-    <div className="hero-loop-step hero-loop-step-4">
-      <div className="hero-step-number">04</div>
+            <small>Recommend intervention</small>
 
-      <strong>ACT</strong>
+            <div className="hero-step-glow" />
+          </div>
+        </div>
 
-      <small>
-        Recommend intervention
-      </small>
-
-      <div className="hero-step-glow" />
-    </div>
-
-  </div>
-
-  <div className="hero-intelligence-footer">
-    <span>Predict</span>
-    <span className="hero-footer-arrow">→</span>
-    <span>Prepare</span>
-    <span className="hero-footer-arrow">→</span>
-    <span>Protect</span>
-  </div>
-
-</div>
-
+        <div className="hero-intelligence-footer">
+          <span>Predict</span>
+          <span className="hero-footer-arrow">→</span>
+          <span>Prepare</span>
+          <span className="hero-footer-arrow">→</span>
+          <span>Protect</span>
+        </div>
+      </div>
     </section>
   );
 }

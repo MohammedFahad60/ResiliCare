@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Menu, X, Settings, ShieldCheck } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import { navItems } from "../../constants/navigation";
 
@@ -56,29 +56,19 @@ export default function Navbar({
                 BRAND
             ====================================================== */}
 
-            <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
+            <div className="flex w-full items-center justify-between gap-40 lg:w-auto">
               <button
                 type="button"
                 aria-label="Go to Overview"
                 onClick={() => setActive("Overview")}
-                className="flex items-center gap-3"
+                className="flex items-center"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300">
-                  <ShieldCheck
-                    size={20}
-                    strokeWidth={2}
+                  <img
+                    src="frontend/src/assets/logo.png"
+                    alt="ResiliCare"
+                    className="h-12 w-auto object-contain"
                   />
-                </div>
-
-                <div className="flex flex-col items-start">
-                  <span className="text-[15px] font-semibold tracking-tight text-white">
-                    ResiliCare
-                  </span>
-
-                  <span className="text-[9px] uppercase tracking-[0.16em] text-white/40">
-                    Predict. Prepare. Protect.
-                  </span>
-                </div>
+                
               </button>
 
               {/* Mobile menu button */}
@@ -218,14 +208,6 @@ export default function Navbar({
                     Systems operational
                   </span>
                 </div>
-
-                <button
-                  type="button"
-                  aria-label="System settings"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
-                >
-                  <Settings size={16} />
-                </button>
               </div>
             </div>
           </motion.div>
