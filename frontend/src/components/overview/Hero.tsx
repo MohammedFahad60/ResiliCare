@@ -1,11 +1,18 @@
 import { ArrowRight, BrainCircuit, Network, ShieldCheck } from "lucide-react";
 
+interface HeroProps {
+  onRunSimulation: () => void;
+  onExploreNetwork: () => void;
+  stockoutNodes?: number;
+  facilityCount?: number;
+}
+
 function Hero({
   onRunSimulation,
   onExploreNetwork,
   stockoutNodes = 0,
   facilityCount = 0,
-}) {
+}: HeroProps) {
   return (
     <section className="hero-section">
       {/* =====================================================
