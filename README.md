@@ -847,6 +847,29 @@ Human-readable Explanation
 
 Generative AI is positioned as an **explanation and decision-support layer**, not as the source of raw operational truth.
 
+### Gemini System Instructions
+
+ResiliCare uses a dedicated system instruction to control
+Gemini's behavior when explaining analytics and recommendations.
+
+The instruction requires Gemini to:
+
+- use only supplied ResiliCare data
+- distinguish observed, predicted, simulated, and recommended information
+- explain the reasoning behind detected risks
+- explain resource redistribution recommendations
+- identify missing information instead of inventing values
+- clearly label crisis results as simulated projections
+- avoid presenting generated explanations as clinical or operational truth
+
+The system instruction is maintained in:
+
+`backend/prompts/gemini_system_instruction.md`
+
+This prompt is designed to handle edge cases such as incomplete
+data, missing facility information, conflicting signals, and
+simulated scenarios.
+
 ### Google Technology Integration
 
 ResiliCare uses Google technologies in the following roles:
